@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raise alert</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
+  <body>
+    <p>
+        
+    </p>
+    <button id="btn" onclick="myFunction()">Raise Alert!</button>
+
+    <lottie-player class="flex justify-center"
+      id="gif"
+      src="https://assets7.lottiefiles.com/packages/lf20_8knle7ns.json"
+      background="transparent"
+      speed="1"
+      style="width: 700px; height: 700px; display: none;"
+      loop
+      autoplay
+    ></lottie-player>
+
+  </body>
+  <script>
+    const btn = document.getElementById("btn");
+    const lp = document.getElementById("gif");
+    let alertRaised = false;
+    btn.addEventListener("click", function onclick() {
+      if(alertRaised){
+        alertRaised=false;
+        btn.innerHTML = "Raise Alert!";
+        lp.style.display="none";
+      }else{
+        alertRaised=true;
+        btn.innerHTML = "Stop Alert!";
+        lp.style.display="block";
+      }
+    });
+    // function myFunction() {
+    //   if (btn.innerHTML === "Raise Alert!") {
+    //     btn.innerHTML = "Stop Alert!";
+    //   } else {
+    //     btn.innerHTML = "Raise Alert!";
+    //   }
+    // }
+  </script>
+</html>

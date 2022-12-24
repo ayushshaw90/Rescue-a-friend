@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anti Ragging</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+
+    <style>
+      #map {
+        height: 450px;
+        margin-top: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mobile-container">
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+          <a href="#home" class="active">Logo</a>
+          <div id="myLinks">
+            <a href="index.html">Home</a>
+            <a href="alert.html">Raise an alert</a>
+            <a href="seealerts.html">See Alerts</a>
+          </div>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+    <h1>Map location</h1>
+    <div id="map"></div>
+    <div>hi</div>
+<script src="alert.js"></script>
+  </body>
+</html>
