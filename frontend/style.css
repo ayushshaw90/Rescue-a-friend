@@ -1,0 +1,85 @@
+body {
+
+    background: url('dd.gif') no-repeat center center fixed;
+    background-size: 800px;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.signup-box {
+    width: 360px;
+    height: 620px;
+    margin: auto;
+    border-radius: 5px;
+    color: rgb(18, 17, 17);
+
+}
+
+.login {
+    width: 360px;
+    height: 280px;
+    margin: auto;
+    border-radius: 5px;
+    color: black
+}
+
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+h4 {
+    text-align: center;
+    font-size: 15px;
+}
+
+form {
+    width: 280px;
+    margin: -12px 28px;
+
+}
+
+form label {
+    display: flex;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+input {
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border: 1px solid rgb(158, 15, 15);
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type="button"] {
+    width: 295px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    background-color: #12d2a2;
+    color: white;
+    font-size: 18px;
+}
+
+p {
+    text-align: center;
+    padding-top: 5px;
+    font-size: 15px;
+
+}
+
+.already {
+    text-align: center;
+    color: black;
+    font-size: 15px;
+    margin-top: -45px;
+
+}
+
+.already a {
+    color: rgb(5, 5, 120)
+}
