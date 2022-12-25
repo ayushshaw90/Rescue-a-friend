@@ -42,19 +42,25 @@
             <div id="hamburger" x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
                 class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center">
                 <div class="flex flex-col md:flex-row md:mx-6">
-                    <a class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
+                    <a class="my-2 transition-colors duration-300 transform text-blue-400 hover:text-blue-400 md:mx-4 md:my-0"
                         href="#">Raise Alert</a>
                     <a class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
                         href="#">Show Alerts</a>
-                    <a class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
-                        href="#">Register / Login</a>
+                    <form action="/logout?_method=DELETE" method="POST">
+                    <button id="logout" class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0 bg-gray-700 px-2 py rounded-lg">
+                        <% if (name) { %>
+                            <%=name %>
+                        <% } %>
+                        - Logout
+                    </button>
+                    </form>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Raise Alert -->
-    <div >
+    <div>
         <div id="non-nav" class="w-full bg-gray-700">
             <div class="py-16">
                 <h1 id="help-txt"
@@ -75,6 +81,6 @@
         </div>
     </div>
 </body>
-<script src="./navscript.js"></script>
-
+<script src="navscript.js"></script>
+<script src="alert_raise.js"></script>
 </html>

@@ -1,5 +1,3 @@
-const { response } = require("express")
-
 const open = document.getElementById("open")
 const close = document.getElementById("close")
 const navbtn = document.getElementById("nav-btn")

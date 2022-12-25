@@ -39,6 +39,7 @@ const users = []
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 app.use(flash())
+app.use(express.json())
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -47,9 +48,10 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
+app.use(express.static('public'))
 
 app.get('/', checkAuthenticated, (req, res) => {
-    res.render('index.ejs', { name: req.user.name })
+    res.render('raisealert.ejs', { name: req.user.name })
     // sendSMS(`Alert!!, ${req.user.name} is getting harrased. Open the webapp to know his current location. http://localhost:3000`, '+919330622185')
 })
 
@@ -67,9 +69,10 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs')
 })
 app.get('/alert', checkAuthenticated, (req, res)=>{
-    res.render('alert.ejs')
+    res.render('raisealert.ejs', {name: req.user.name})
 })
 app.post('/alert', checkAuthenticated, async (req, res) => {
+    console.log("alert raised")
     try{
         const name = req.user.name;
         const email = req.user.email;
@@ -97,6 +100,21 @@ app.post('/alert', checkAuthenticated, async (req, res) => {
     } catch (e) {
         console.log(e.message)
         res.json({"status": "Error occured, failed to send message."})
+    }
+})
+app.post('/close-alert', checkAuthenticated, async (req, res)=>{
+    console.log("alert closed")
+    try{
+        const email = req.user.email;
+        console.log(req.body)
+        Alert.deleteMany({"email": email}).then(()=>{
+            res.json({
+                "status": "OK"
+            })
+        })
+    } catch (e) {
+        console.log(e.message)
+        res.json({"status": "Error"})
     }
 })
 app.post('/register', checkNotAuthenticated, async (req, res) => {
