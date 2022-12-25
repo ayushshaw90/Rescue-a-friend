@@ -50,9 +50,12 @@ app.use(passport.session())
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
 
-app.get('/', checkAuthenticated, (req, res) => {
-    res.render('raisealert.ejs', { name: req.user.name })
-    // sendSMS(`Alert!!, ${req.user.name} is getting harrased. Open the webapp to know his current location. http://localhost:3000`, '+919330622185')
+app.get('/', checkAuthenticated, async (req, res) => {
+    console.log("email"+ req.user.email)
+    const alerts = await Alert.find({"email": req.user.email})
+    console.log("root")
+    console.log(alerts)
+    res.render('raisealert.ejs', { name: req.user.name , isRaised: (alerts.length !=  0)})
 })
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
@@ -68,8 +71,9 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
 app.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs')
 })
-app.get('/alert', checkAuthenticated, (req, res)=>{
-    res.render('raisealert.ejs', {name: req.user.name})
+app.get('/alert', checkAuthenticated, async (req, res)=>{
+    const alerts = await Alert.count({"email": req.user.email})
+    res.render('raisealert.ejs', {name: req.user.name, isRaised: (alerts !=  0)})
 })
 app.get('/see-alert', checkAuthenticated, async (req, res)=>{
     let alerts = await Alert.find({})

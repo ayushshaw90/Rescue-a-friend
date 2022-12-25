@@ -8,10 +8,20 @@ const helptxt = document.getElementById("help-txt")
 const lottie = document.getElementById("gif")
 const navbar = document.getElementById("navbar")
 const nonNav = document.getElementById("non-nav")
+const alertState = document.getElementById("isRaised")
+
 
 let isopen = true;
+
 let isRaised = false;
 let alertRaised = false;
+if(alertState.classList.contains("true")){
+    isRaised = true;
+    lottie.style.visibility="unset"
+    alertTxt.innerHTML="STOP"
+    helptxt.innerText = "Alert sent to all your friends."
+}
+
 
 close.classList.add("hidden")
 navmenu.classList.add("hidden")
