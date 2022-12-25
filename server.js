@@ -80,7 +80,7 @@ app.get('/see-alert', checkAuthenticated, async (req, res)=>{
 
     console.log("See all alerts")
     console.log(alerts)
-    res.render('seealert.ejs', {alerts: alerts, isempty: alerts.length===0})
+    res.render('seealert.ejs', {name: req.user.name, alerts: alerts, isempty: alerts.length===0})
 })
 app.post('/alert', checkAuthenticated, async (req, res) => {
     console.log("alert raised")

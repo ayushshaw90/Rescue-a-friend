@@ -17,7 +17,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <a class="text-2xl font-bold transition-colors duration-300 transform text-white lg:text-3xl hover:text-gray-300"
-                        href="#">Brand</a>
+                        href="/">Brand</a>
                 </div>
 
                 <!-- Mobile menu button -->
@@ -43,9 +43,9 @@
                 class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center">
                 <div class="flex flex-col md:flex-row md:mx-6">
                     <a class="my-2 transition-colors duration-300 transform text-blue-400 hover:text-blue-400 md:mx-4 md:my-0"
-                        href="#">Raise Alert</a>
+                        href="/">Raise Alert</a>
                     <a class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
-                        href="#">Show Alerts</a>
+                        href="/see-alert">Show Alerts</a>
                     <form action="/logout?_method=DELETE" method="POST">
                     <button id="logout" class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0 bg-gray-700 px-2 py rounded-lg">
                         <% if (name) { %>
@@ -71,8 +71,8 @@
                 src="https://assets7.lottiefiles.com/packages/lf20_8knle7ns.json" background="transparent" speed="0.8"
                 style="width: 150px; height: 150px; visibility:hidden" loop autoplay></lottie-player>
             <div class="w-full flex">
-                <button id="alertButton" class="w-fit mx-auto py-24 drop-shadow-xl active:drop-shadow-sm duration-200">
-                    <div class="flex mx-auto w-64 h-64 rounded-full bg-red-600 border-8 border-red-400 ">
+                <button id="alertButton" class="w-fit mx-auto py-8 md:py-36 drop-shadow-xl active:drop-shadow-sm duration-200">
+                    <div class="flex mx-auto w-48 h-48 md:w-64 md:h-64 rounded-full bg-red-600 border-8 border-red-400 ">
                         <div id="btn-txt-alert" class="duration-200 mx-auto w-fit my-auto text-6xl text-white">SOS
                         </div>
                     </div>
