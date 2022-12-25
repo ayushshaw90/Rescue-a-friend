@@ -69,7 +69,7 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
 }))
 
 app.get('/register', checkNotAuthenticated, (req, res) => {
-    res.render('register.ejs')
+    res.render('signup.ejs')
 })
 app.get('/alert', checkAuthenticated, async (req, res)=>{
     const alerts = await Alert.count({"email": req.user.email})
