@@ -44,7 +44,7 @@ var greenIcon = new L.Icon({
 });
 map.setView([19.5, 80], 17);
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
+    maxZoom: 13,
     attribution:
         '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
