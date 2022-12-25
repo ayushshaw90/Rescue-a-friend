@@ -128,6 +128,20 @@ app.post('/close-alert', checkAuthenticated, async (req, res)=>{
         res.json({"status": "Error"})
     }
 })
+app.get('/individual-alert/:email', checkAuthenticated ,async (req, res)=>{
+    const alertmail = req.params.email
+    console.log(alertmail)
+    const alertdata = await Alert.find({email: alertmail})
+    console.log(alertdata)
+    if(alertdata.length>0){
+        let latitude = alertdata[0].latilude;
+        let longitude = alertdata[0].longitude;
+        res.render("individual_alert.ejs", {name: req.user.name, latitude: latitude, longitude: longitude})
+    }else{
+        res.redirect('/')
+    }
+    
+})
 app.post('/register', checkNotAuthenticated, async (req, res) => {
     try {
         console.log(req.body.password)
