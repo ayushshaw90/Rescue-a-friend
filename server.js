@@ -134,9 +134,13 @@ app.get('/individual-alert/:email', checkAuthenticated ,async (req, res)=>{
     const alertdata = await Alert.find({email: alertmail})
     console.log(alertdata)
     if(alertdata.length>0){
-        //to be completed
+        let latitude = alertdata[0].latilude;
+        let longitude = alertdata[0].longitude;
+        res.render("individual_alert.ejs", {name: req.user.name, latitude: latitude, longitude: longitude})
+    }else{
+        res.redirect('/')
     }
-    res.redirect('/')
+    
 })
 app.post('/register', checkNotAuthenticated, async (req, res) => {
     try {
