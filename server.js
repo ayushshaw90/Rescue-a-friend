@@ -71,6 +71,13 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
 app.get('/alert', checkAuthenticated, (req, res)=>{
     res.render('raisealert.ejs', {name: req.user.name})
 })
+app.get('/see-alert', checkAuthenticated, async (req, res)=>{
+    let alerts = await Alert.find({})
+
+    console.log("See all alerts")
+    console.log(alerts)
+    res.render('seealert.ejs', {alerts: alerts, isempty: alerts.length===0})
+})
 app.post('/alert', checkAuthenticated, async (req, res) => {
     console.log("alert raised")
     try{

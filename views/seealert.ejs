@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anti Bullies</title>
+    <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
 </head>
 
 <body>
@@ -19,7 +17,6 @@
                     <a class="text-2xl font-bold transition-colors duration-300 transform text-white lg:text-3xl hover:text-gray-300"
                         href="#">Brand</a>
                 </div>
-
                 <!-- Mobile menu button -->
                 <div class="flex md:hidden">
                     <button id="nav-btn" type="button"
@@ -37,50 +34,38 @@
                     </button>
                 </div>
             </div>
-
             <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
             <div id="hamburger" x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
                 class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center">
                 <div class="flex flex-col md:flex-row md:mx-6">
-                    <a class="my-2 transition-colors duration-300 transform text-blue-400 hover:text-blue-400 md:mx-4 md:my-0"
-                        href="#">Raise Alert</a>
                     <a class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
+                        href="#">Raise Alert</a>
+                    <a class="my-2 transition-colors duration-300 transform text-blue-400 hover:text-blue-400 md:mx-4 md:my-0"
                         href="#">Show Alerts</a>
-                    <form action="/logout?_method=DELETE" method="POST">
-                    <button id="logout" class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0 bg-gray-700 px-2 py rounded-lg">
-                        <% if (name) { %>
-                            <%=name %>
-                        <% } %>
-                        - Logout
-                    </button>
-                    </form>
+                    <a class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
+                        href="#">Register / Login</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Raise Alert -->
-    <div>
-        <div id="non-nav" class="w-full bg-gray-700">
-            <div class="py-16">
-                <h1 id="help-txt"
-                    class="border-4 border-gray-300 w-fit shadow px-4 mx-auto text-2xl text-center py-4 rounded-l-lg rounded-tr-lg bg-slate-100">
-                    Are you getting bullied?</h1>
-            </div>
-            <lottie-player class="flex justify-center mx-auto" id="gif"
-                src="https://assets7.lottiefiles.com/packages/lf20_8knle7ns.json" background="transparent" speed="0.8"
-                style="width: 150px; height: 150px; visibility:hidden" loop autoplay></lottie-player>
-            <div class="w-full flex">
-                <button id="alertButton" class="w-fit mx-auto py-24 drop-shadow-xl active:drop-shadow-sm duration-200">
-                    <div class="flex mx-auto w-64 h-64 rounded-full bg-red-600 border-8 border-red-400 ">
-                        <div id="btn-txt-alert" class="duration-200 mx-auto w-fit my-auto text-6xl text-white">SOS
-                        </div>
-                    </div>
-                </button>
-            </div>
-        </div>
+
+    <div class="text-xl text-center w-full bg-gray-700" id="non-nav">
+        <ul class="pt-2 px-4 max-w-md mx-auto">
+            <% alerts.forEach(function(item){ %>
+                <a href="/individual-alert/<%= item.email %>">
+                    <li class="hover:text-blue-400 mt-4 text-gray-300 bg-gray-800 py-6 px-4 rounded">
+                        <%= item.name %> has raised a panic alert!
+                    </li>
+                </a>
+            <% }) %>
+        </ul>
+        <% if(isempty){ %>
+            <h1 class="my-auto py-16 text-gray-200 text-2xl font-semibold">No Alerts </h1>
+        <% } %>
+
     </div>
+    <script src="/seealert_script.js"></script>
 </body>
-<script src="navscript.js"></script>
-<!-- <script src="alert_raise.js"></script> -->
+
 </html>
